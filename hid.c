@@ -95,7 +95,7 @@ void debug_error(t_hid *x, t_int message_debug_level, const char *fmt, ...)
 		//t_int arg[8];
 		va_start(ap, fmt);
 		vsnprintf(buf, MAXPDSTRING-1, fmt, ap);
-		pd_error(x, buf);
+		pd_error(x, "%s", buf);
 		va_end(ap);
 	}
 }
