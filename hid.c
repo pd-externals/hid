@@ -343,7 +343,7 @@ static void hid_open(t_hid *x, t_symbol *s, int argc, t_atom *argv)
 		if(! x->x_device_open)
 		{
 			if(hid_open_device(x,device_number))
-				error("[hid] can not open device %d",device_number);
+				pd_error(x, "[hid] can not open device %d",device_number);
 			else
             {
 				x->x_device_open = 1;
@@ -452,9 +452,9 @@ static void *hid_new(t_symbol *s, int argc, t_atom *argv)
   }
 
 #if !defined(__linux__) && !defined(__APPLE__)
-  error("    !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!");
-  error("     This is a dummy, since this object only works GNU/Linux and MacOS X!");
-  error("    !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!");
+  pd_error(x, "    !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!");
+  pd_error(x, "     This is a dummy, since this object only works GNU/Linux and MacOS X!");
+  pd_error(x, "    !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !! WARNING !!");
 #endif
 
   /* init vars */

@@ -435,7 +435,7 @@ t_int hid_open_device(t_hid *x, short device_number)
 	/* test if device open */
 	if(x->x_fd < 0 ) 
 	{ 
-		error("[hid] open %s failed",block_device);
+		pd_error(x, "[hid] open %s failed",block_device);
 		x->x_fd = -1;
 		return 1;
 	}

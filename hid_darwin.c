@@ -469,7 +469,7 @@ static void hid_print_element_list(t_hid *x)
 	pCurrentHIDDevice = device_pointer[x->x_device_number];
 	if ( ! HIDIsValidDevice(pCurrentHIDDevice) )
 	{
-		error("[hid]: device %d is not a valid device\n",x->x_device_number);
+		pd_error(x, "[hid]: device %d is not a valid device\n",x->x_device_number);
 		return;
 	}
 	post("[hid] found %d elements:",element_count[x->x_device_number]);
