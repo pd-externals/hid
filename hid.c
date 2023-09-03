@@ -445,7 +445,10 @@ static void *hid_new(t_symbol *s, int argc, t_atom *argv)
   {
 	  post("[hid] %d.%d, written by Hans-Christoph Steiner <hans@eds.org>",
 			 HID_MAJOR_VERSION, HID_MINOR_VERSION);  
-	  post("\tcompiled on "__DATE__" at "__TIME__ " ");
+#ifndef PD_TIMESTAMP_STRING
+# define PD_TIMESTAMP_STRING "compiled on "__DATE__" at "__TIME__
+#endif
+	  post("\t"PD_TIMESTAMP_STRING);
   }
 
 #if !defined(__linux__) && !defined(__APPLE__)
